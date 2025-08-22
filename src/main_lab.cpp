@@ -6,18 +6,36 @@
 #include <iostream>
 using namespace std;
 
+#ifdef USE_OMP
+  #ifdef _OPENMP
+    #include <omp.h>  
+  #endif
+#endif
+
+
 int main() {
     #ifdef USE_OMP
       #ifdef _OPENMP
         cout << "[RUN] OpenMP ENABLED (USE_OMP)\n";
         cout << "      OMP_MAX_THREADS? use env OMP_NUM_THREADS, "
-             << "default=" << omp_get_max_threads() << "\n";
+            << "default=" << omp_get_max_threads() << "\n";
+
+        // 실제 사용된 thread 수 확인 (병렬 블록 안에서)
+        #pragma omp parallel
+        {
+            #pragma omp single
+            {
+                cout << "      [OMP] threads actually used = "
+                    << omp_get_num_threads() << "\n";
+            }
+        }
       #else
         cout << "[RUN] USE_OMP defined but compiler has no _OPENMP. (체크 플래그/링크 확인)\n";
       #endif
-    #else
-        cout << "[RUN] SERIAL (OpenMP disabled)\n";
-    #endif
+  #else
+    cout << "[RUN] SERIAL (OpenMP disabled)\n";
+  #endif
+
 
     Model model;
 
