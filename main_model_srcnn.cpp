@@ -3,10 +3,11 @@
 using namespace std;
 
 
+
+
 int main() {
 	Model model;
-
-	// build model
+	
 	model.add_layer(new Layer_Conv("Conv1", 9, 1, 64, LOAD_INIT, "model/weights_conv1_9x9x1x64.txt", "model/biases_conv1_64.txt"));
 	model.add_layer(new Layer_ReLU("Relu1", 1, 64, 64));
 	model.add_layer(new Layer_Conv("Conv2", 5, 64, 32, LOAD_INIT, "model/weights_conv2_5x5x64x32.txt", "model/biases_conv2_32.txt"));

@@ -6,7 +6,6 @@ using namespace std;
 int main() {
 	Model model;
 
-	// build model
 	model.add_layer(new Layer_Conv("Conv1", 3, 1, 1, MEAN_INIT));
 	model.add_layer(new Layer_ReLU("Relu1", 1, 1, 1));
 	model.add_layer(new Layer_Conv("Conv2", 3, 1, 1, MEAN_INIT));
