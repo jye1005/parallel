@@ -24,7 +24,7 @@ int main() {
 	int nC = 2;
 	Tensor3D tensor(nH, nW, nC); 
 
-	// 
+	
 	tensor.set_elem(0, 0, 0, 1);
 	tensor.set_elem(1, 1, 0, 2);
 	tensor.set_elem(0, 0, 1, 3);

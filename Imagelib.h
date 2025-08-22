@@ -1,4 +1,4 @@
-// bmp_utils_portable.h
+
 #pragma once
 #include <cstdint>
 #include <cstdio>

@@ -69,7 +69,7 @@ public:
         convert2Dto3D(img_Y, inImage3D, nH, nW);
 
         Tensor3D* temp = new Tensor3D(nH, nW, 1);
-        temp->set_tensor(inImage3D);   // 소유권 이전
+        temp->set_tensor(inImage3D);  
         tensors.push_back(temp);
     }
 

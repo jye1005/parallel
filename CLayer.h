@@ -42,15 +42,15 @@ class Layer_Conv : public Layer {
 private:
     std::string filename_weight;
     std::string filename_bias;
-    double****  weight_tensor;   // [fK][fK][fC_in][fC_out]
-    double*     bias_tensor;     // [fC_out]
+    double****  weight_tensor;   
+    double*     bias_tensor;    
     bool        weights_loaded {false};
 public:
     Layer_Conv(std::string _name, int _fK, int _fC_in, int _fC_out,
                int init_type, std::string _filename_weight = "", std::string _filename_bias = "");
     ~Layer_Conv() override;
     void init(int init_type);
-    Tensor3D* forward(const Tensor3D* input) override;  // VALID conv, stride=1
+    Tensor3D* forward(const Tensor3D* input) override;  
     void get_info(std::string& _name, int& _fK, int& _fC_in, int& _fC_out) const override;
     void print() const override;
 };
